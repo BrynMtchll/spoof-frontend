@@ -19,23 +19,22 @@ const setNearbyUsersCallback = (prevNearbyUsers, nearbyUsers) => {
 }
 
 export default function useNearbyUsersSearch() {
-  const { status } = useSession();
+  const { status, data } = useSession();
   const [nearbyUsers, setNearbyUsers] = useState([]);
   const workerRef = useRef();
 
-  const initialSearch = () => {
+  const initialSearch = (user_id) => {
     navigator.geolocation.getCurrentPosition(async ({ coords: { latitude, longitude }}) => {
-
-      const nearbyUsers = await nearbyUserSearchQuery({latitude, longitude});
+      const nearbyUsers = await nearbyUserSearchQuery({latitude, longitude, user_id});
       setNearbyUsers(nearbyUsers);
 
     }, error, {enableHighAccuracy: true})
   }
 
-  const updatePosition = () => {
+  const updatePosition = (user_id) => {
     navigator.geolocation.watchPosition(({coords: { latitude, longitude }}) => {
 
-      workerRef.current?.postMessage({latitude, longitude})
+      workerRef.current?.postMessage({latitude, longitude, user_id})
 
     }, error, {enableHighAccuracy: true})
   }
@@ -43,10 +42,11 @@ export default function useNearbyUsersSearch() {
   useEffect(() => {
     if (status == "unauthenticated" || status == "loading" || typeof window == 'undefined') return
     workerRef.current = new Worker(new URL('../util/workers/nearbyUserSearchWorker.js', import.meta.url))
+    const user_id = data.token.user.id;
 
-    initialSearch()
+    initialSearch(user_id)
 
-    updatePosition()
+    updatePosition(user_id)
 
     workerRef.current.onmessage = event => {
       const nearbyUsers = event.data;

@@ -3,8 +3,7 @@ import { searchNearbyUsers } from '../../graphql/queries';
 import { API } from 'aws-amplify';
 import { getSession } from 'next-auth/react';
 
-export default async function nearbyUserSearchQuery({ latitude, longitude }) {
-  const { token: { user: { id: user_id }}} = await getSession();
+export default async function nearbyUserSearchQuery({ latitude, longitude, user_id }) {
   const timestamp = getCurrentTimestamp();
   const input = { 
     latitude, 

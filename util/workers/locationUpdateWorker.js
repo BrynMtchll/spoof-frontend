@@ -4,11 +4,11 @@ import locationUpdateQuery from "../queries/locationUpdateQuery";
 
 Amplify.configure({ ...awsExports, ssr: true });
 
-let latitude, longitude;
+let latitude, longitude, user_id;
 
 const updateLocation = async () => {
-  if (!latitude || !longitude) return
-  await locationUpdateQuery({ latitude, longitude })
+  if (!latitude || !longitude || !user_id) return
+  await locationUpdateQuery({ latitude, longitude, user_id })
 }
 
 const init = async () => {
@@ -24,7 +24,8 @@ const init = async () => {
 init();
 
 addEventListener("message", (event) => {
-  if (!event.data.latitude || !event.data.longitude) return;
+  if (!event.data.latitude || !event.data.longitude || !event.data.user_id) return;
   latitude = event.data.latitude;
   longitude = event.data.longitude;
+  user_id = event.data.user_id;
 });

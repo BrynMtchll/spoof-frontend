@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, getSession } from 'next-auth/react';
 import queueUpdateQuery from '@/util/queries/queueUpdateQuery';
 
 
@@ -20,8 +20,13 @@ export default function useQueueUpdate() {
   const workerRef = useRef()
 
   const initialUpdate = async () => {
-    const queue = await queueUpdateQuery();
+    const queue = await queueUpdateQuery({});
     setQueue(queue);
+  }
+
+  const sendSessionToWorker = async () => {
+    const { token: { accessToken, user: {id: user_id }}} = await getSession();
+    workerRef.current.postMessage({accessToken, user_id});
   }
 
   useEffect(() => {
@@ -31,6 +36,10 @@ export default function useQueueUpdate() {
     initialUpdate();
 
     workerRef.current.onmessage = event => {
+      if (event.data == "session request") {
+        sendSessionToWorker();
+        return;
+      }
       const queue = event.data
       setQueue(prevQueue => setQueueCallback(prevQueue, queue));
     }

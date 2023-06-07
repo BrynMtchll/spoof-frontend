@@ -4,11 +4,11 @@ import nearbyUserSearchQuery from '../queries/nearbyUserSearchQuery';
 
 Amplify.configure({ ...awsExports, ssr: true });
 
-let latitude, longitude;
+let latitude, longitude, user_id;
 
 const searchUsers = async () => {
-  if (!latitude || !longitude) return;
-  const nearbyUsers = await nearbyUserSearchQuery({latitude, longitude });
+  if (!latitude || !longitude || !user_id) return;
+  const nearbyUsers = await nearbyUserSearchQuery({latitude, longitude, user_id });
   postMessage(nearbyUsers);
 }
 
@@ -23,7 +23,8 @@ const init = () => {
 init();
 
 addEventListener("message", (event) => {
-  if (!event.data.latitude || !event.data.longitude) return;
+  if (!event.data.latitude || !event.data.longitude || !event.data.user_id) return;
   latitude = event.data.latitude;
   longitude = event.data.longitude;
+  user_id = event.data.user_id;
 });
