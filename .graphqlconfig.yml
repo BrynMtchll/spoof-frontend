@@ -1,0 +1,18 @@
+projects:
+  spoof-backend-dev-appsync:
+    schemaPath: graphql/schema.json
+    includes:
+      - graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: graphql
+        region: us-east-1
+        apiId: g7pkratpk5ggtkgfv4ynn2qfxe
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3
