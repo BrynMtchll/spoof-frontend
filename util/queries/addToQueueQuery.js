@@ -17,7 +17,7 @@ export default async function addToQueueQuery({ track_id }) {
       query: addToUserQueue,
       variables: variables
     })
-    await queueUpdateQuery();
+    await queueUpdateQuery({});
     console.log(response);
     return 'added to queue';
 

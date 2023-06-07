@@ -4,14 +4,17 @@ import { API } from 'aws-amplify';
 import { getSession } from 'next-auth/react';
 
 export default async function queueUpdateQuery({accessToken, user_id}) {
-  const { token } = await getSession();
-  if (!accessToken) accessToken = token.accessToken;
-  if (!user_id) user_id = token.user.id;
+  if (!accessToken || !user_id) {
+    const { token } = await getSession();
+    user_id = token.user.id;
+    accessToken = token.accessToken;
+  }
   const variables = {
     access_token: accessToken,
     track_play_date: getCurrentTimestamp(),
     user_id: user_id
   }
+  console.log(' queue is updating ')
 
   const response = await API.graphql({
     query: updateUserQueue,
