@@ -1,7 +1,10 @@
 import Image from 'next/image';
+
 import { Box, Typography } from '@mui/material';
-import ListeningBars from './ListeningBars';
-import TrackMoreMenu from './TrackMoreMenu';
+
+import ListeningBars from '@/components/ListeningBars';
+import TrackMoreMenu from '@/components/TrackMoreMenu';
+
 
 export default function Track(props) {
 	const { height = 60, stripped = false, currentTrack = false, position, track, px = 1 } = props
@@ -17,7 +20,7 @@ export default function Track(props) {
 			pr: px,
 			width: 1,
 			'&:hover': {
-				bgcolor: 'rgba(250, 250, 250, 0.1)',
+				// bgcolor: 'rgba(250, 250, 250, 0.1)',
 			}
 		}}>
 			{!stripped && <Box sx={{

@@ -1,4 +1,4 @@
-import Track from './Track';
+import Track from '@/components/Track';
 
 export default function TrackList({ tracks }) {
   return (
@@ -9,6 +9,5 @@ export default function TrackList({ tracks }) {
         )
       }
     </>
-    
   )
 }

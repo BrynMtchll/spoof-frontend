@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { signIn } from 'next-auth/react';
-import LandingVisual from './LandingVisual';
+import LandingVisual from '@/components/LandingVisual';
 
 export default function Landing() {
   const handleSignIn = e => {
@@ -37,7 +37,7 @@ export default function Landing() {
           onClick={handleSignIn}
           sx={{
             alignSelf:"flex-end", 
-            p: 1,
+            p: 2,
             color: 'hotPink',
             transition: 'background-color 0.4s',
 

@@ -28,10 +28,9 @@ export default function App({
       <CacheProvider value={emotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
+          <link rel="icon" href="/favicon.png" sizes="any" />
         </Head>
         <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-
           <CssBaseline />
           <Context>
             <Layout>

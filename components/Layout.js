@@ -1,11 +1,13 @@
 import Navigation from './Navigation'
-import Box from '@mui/material/Box'
 import { useSession } from 'next-auth/react'
-import FeedbackPopup from './FeedbackPopup'
-import NotificationPopup from './NotificationPopup'
-import BodyColumn from './BodyColumn'
-import ProfileMenu from './ProfileMenu'
 import { useRouter } from 'next/router'
+
+import Box from '@mui/material/Box'
+
+import FeedbackPopup from '@/components/FeedbackPopup'
+import NotificationPopup from '@/components/NotificationPopup'
+import BodyColumn from '@/components/BodyColumn'
+import ProfileMenu from '@/components/ProfileMenu'
 
 
 export const metadata = {

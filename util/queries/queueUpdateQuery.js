@@ -14,7 +14,6 @@ export default async function queueUpdateQuery({accessToken, user_id}) {
     track_play_date: getCurrentTimestamp(),
     user_id: user_id
   }
-  console.log(' queue is updating ')
 
   const response = await API.graphql({
     query: updateUserQueue,

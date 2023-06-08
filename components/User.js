@@ -1,9 +1,11 @@
 import { Typography, Box, Paper } from '@mui/material';
 import Link from 'next/link';
-import Track from './Track';
-import ProfilePic from './ProfilePic';
-import ListeningBars from './ListeningBars';
-import useQueueSubscribe from '../hooks/useOnQueueUpdated';
+
+import Track from '@/components/Track';
+import ProfilePic from '@/components/ProfilePic';
+import ListeningBars from '@/components/ListeningBars';
+
+import useQueueSubscribe from '@/hooks/useOnQueueUpdated';
 
 
 export default function User({ user }) {

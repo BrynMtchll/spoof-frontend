@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material';
-import Track from './Track';
-import TrackList from './TrackList';
-import ProfilePic from './ProfilePic';
-import Divider from './Divider';
+import Track from '@/components/Track';
+import TrackList from '@/components/TrackList';
+import ProfilePic from '@/components/ProfilePic';
+import Divider from '@/components/Divider';
+
 const subheaderStyle ={
 	fontWeight: 'bold',
 	color: 'text.secondary',

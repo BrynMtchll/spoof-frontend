@@ -2,7 +2,7 @@ import Queue from '../../components/Queue';
 import useOnQueueUpdated from '../../hooks/useOnQueueUpdated';
 import { useSession } from 'next-auth/react'
 
-export default function UserQueue({ userProfile }) {
+export default function UserQueuePage({ userProfile }) {
   const { user_id } = userProfile
   let queue = useOnQueueUpdated({ user_id });
   const {status} = useSession();

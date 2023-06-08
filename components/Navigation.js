@@ -1,6 +1,7 @@
-import NavigationItem from './NavigationItem';
-import BottomNavigation from './BottomNavigation';
-import SideNavigation from './SideNavigation';
+import NavigationItem from '@/components/NavigationItem';
+import BottomNavigation from '@/components/BottomNavigation';
+import SideNavigation from '@/components/SideNavigation';
+
 import PeopleIcon from '@mui/icons-material/People';
 import SearchIcon from '@mui/icons-material/Search';
 import QueueIcon from '@/icons/QueueIcon';

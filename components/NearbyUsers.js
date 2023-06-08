@@ -1,8 +1,10 @@
 import {  useContext, useState, useEffect } from 'react';
+
 import { Box, Typography, Grid } from '@mui/material';
-import User from './User';
-import { DataContext } from './Context';
-import BodyColumn from './BodyColumn';
+
+import User from '@/components/User';
+import { DataContext } from '@/components/Context';
+
 
 export default function NearbyUsers() {
   const { nearbyUsers } = useContext(DataContext);

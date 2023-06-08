@@ -1,6 +1,6 @@
 import { Box, Fade } from '@mui/material'
 import useOnTrackRecieved from '@/hooks/useOnTrackRecieved'
-import BodyColumn from './BodyColumn'
+import BodyColumn from '@/components/BodyColumn'
 export default function NotificationPopup() {
   const {notificationDisplay, notificationMessage} = useOnTrackRecieved();
 

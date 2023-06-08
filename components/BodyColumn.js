@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
-import { drawerWidth } from './SideNavigation';
-export default function BodyColumn({children, fixed, bgcolor = true, pointerEvents = true}) {
+import { drawerWidth } from '@/components/SideNavigation';
 
+export default function BodyColumn({children, fixed, bgcolor = true, pointerEvents = true}) {
   return (
     <Box sx={{
       width: 1,
@@ -24,7 +24,6 @@ export default function BodyColumn({children, fixed, bgcolor = true, pointerEven
         position: fixed ? 'fixed' : 'relative',
         bgcolor: bgcolor && 'background.default',
         pb: !fixed && 10,
-
       }}>
         {children}
       </Box>

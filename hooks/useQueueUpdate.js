@@ -25,8 +25,13 @@ export default function useQueueUpdate() {
   }
 
   const sendSessionToWorker = async () => {
-    const { token: { accessToken, user: {id: user_id }}} = await getSession();
-    workerRef.current.postMessage({accessToken, user_id});
+    try {
+      const { token: { accessToken, user: {id: user_id }}} = await getSession();
+      workerRef.current.postMessage({accessToken, user_id});
+
+    } catch(error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {

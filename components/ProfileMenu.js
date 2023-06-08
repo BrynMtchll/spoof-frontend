@@ -1,10 +1,13 @@
-import ProfilePic from './ProfilePic';
-import { Typography, Paper, Menu, MenuItem, Box } from '@mui/material';
 import {  signOut } from 'next-auth/react';
 import { useContext, useState } from 'react';
-import { DataContext } from './Context';
+
+import { Typography, Paper, Menu, MenuItem, Box } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import BodyColumn from './BodyColumn';
+
+import { DataContext } from '@/components/Context';
+import BodyColumn from '@/components/BodyColumn';
+import ProfilePic from '@/components/ProfilePic';
+
 
 export default function ProfileMenu() {
   const { profile } = useContext(DataContext);

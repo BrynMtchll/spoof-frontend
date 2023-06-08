@@ -1,7 +1,8 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { Box, InputBase } from '@mui/material';
-import { useState } from 'react';
 import ClearIcon from '@mui/icons-material/Clear';
+
+import { Box, InputBase } from '@mui/material';
+
 
 export default function SearchBar({ onChange, clearSearch, value }) {
   return (

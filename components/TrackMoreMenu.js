@@ -1,10 +1,15 @@
 import { useState, useCallback, useContext } from 'react';
-import { FeedbackContext, DataContext } from './Context';
+
+import { FeedbackContext, DataContext } from '@/components/Context';
+
+import { IconButton, Menu, MenuItem, Typography, Box } from '@mui/material';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import LaunchIcon from '@mui/icons-material/Launch';
+
 import addToQueueQuery from '@/util/queries/addToQueueQuery';
 import sendTrackToUserQuery from '@/util/queries/sendTrackToUserQuery';
-import { IconButton, Menu, MenuItem, Typography } from '@mui/material';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { wait } from '@/util/helpers';
+
 
 export default function TrackMoreMenu({ track_id }) {
   const { nearbyUsers } = useContext(DataContext);
@@ -82,7 +87,7 @@ export default function TrackMoreMenu({ track_id }) {
           pr: 1,
           '&:hover': {
             bgcolor: 'transparent',
-            cursor: 'default'
+            // cursor: 'default'
           }
         }}
       >
@@ -115,6 +120,28 @@ export default function TrackMoreMenu({ track_id }) {
             >
               Add to user&apos;s queue
             </Typography>
+          </MenuItem>
+          <MenuItem 
+            onMouseOver={closeNestedMenu} 
+            sx={{...menuItemStyle}} 
+          >
+            <a 
+              href={`spotify:track:${track_id}`} 
+              style={{textDecoration: 'none', width: '100%'}}
+              rel="noopener noreferrer"
+            >
+              <Box sx = {{
+                color: 'text.primary', 
+                width: 1, 
+                textDecoration: 'none', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between',
+              }}>
+              <Typography variant='body2'>View on Spotify</Typography>
+              <LaunchIcon sx={{fontSize: 'medium'}} />
+              </Box> 
+            </a>
           </MenuItem>
       </Menu>
       <Menu
