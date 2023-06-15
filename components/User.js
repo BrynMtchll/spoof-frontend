@@ -55,7 +55,7 @@ export default function User({ user }) {
               px: 2,
           }}>
               <Typography variant='h5' sx={{ fontWeight: 'bold' }}>{user.display_name}</Typography>
-              <ListeningBars />
+              {queue.length != 0 && <ListeningBars />}
           </Box>
         <Box sx={{zIndex: 2, height: 60, px: 1,}}>
             <Track stripped={true} track={queue[0]} px={0} />

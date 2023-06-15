@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box'
+import { Box, Skeleton } from '@mui/material'
 import Image from 'next/image'
 
 
@@ -15,12 +15,14 @@ export default function ProfilePic(props) {
       flexShrink: 0,
       overflow: 'hidden',
       }}> 
-      {profile_pic_url && 
+      {profile_pic_url ? 
         <Image style={{objectFit: "cover"}} 
           src={profile_pic_url} 
           priority={true} 
           fill={true} 
           alt='profile picture' />
+          : <Skeleton variant="circular" animation="wave" width="100%" height="100%" />
+
       }
     </Box>
   )

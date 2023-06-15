@@ -23,7 +23,7 @@ export default function BodyColumn({children, fixed, bgcolor = true, pointerEven
         pl: {lg: 8},
         position: fixed ? 'fixed' : 'relative',
         bgcolor: bgcolor && 'background.default',
-        pb: !fixed && 10,
+        pb: !fixed && {xs: 10, sm: 5},
       }}>
         {children}
       </Box>
