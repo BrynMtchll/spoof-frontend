@@ -36,10 +36,14 @@ export default function Track(props) {
 			<Box sx={{ 
 				aspectRatio : '1 / 1',
 				height: 1, 
-				bgcolor: 'pink',
+				bgcolor: 'hotPink',
 				position: 'relative',
 			}}>
-				<Image sizes="(max-width: 100px) 60px" src={track.album_cover_url} priority={true} fill={true} alt='profile picture' />
+				<Image 
+					sizes="(max-width: 100px) 60px" 
+					src={track.album_cover_url} 
+					priority={true} fill={true} 
+					alt='album cover' />
 			</Box>
 			<Box sx={{
 				display: 'flex',

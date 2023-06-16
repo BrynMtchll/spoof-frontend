@@ -1,7 +1,7 @@
 import {  signOut } from 'next-auth/react';
 import { useContext, useState } from 'react';
 
-import { Typography, Paper, Menu, MenuItem, Box } from '@mui/material';
+import { Typography, Paper, Menu, MenuItem, Box, Skeleton } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import { DataContext } from '@/components/Context';
@@ -40,7 +40,7 @@ export default function ProfileMenu() {
                 display: 'flex',
                 height: 40,
                 width: {xs: 40, md: 'auto'},
-                maxWidth: {md: 150},
+                maxWidth: 150,
                 alignItems: 'center',
                 borderRadius: 100,
                 p: 0.5,
@@ -60,7 +60,7 @@ export default function ProfileMenu() {
                 textOverflow:  'ellipsis',
                 overflow: 'hidden',
                 flexGrow: 1,
-              }}>{profile.display_name}</Typography>
+              }}>{profile.display_name ? profile.display_name : <Skeleton width={50}/>}</Typography>
 
               <ArrowDropDownIcon sx={{float: 'right', mr: 1,}} />
             </Paper>

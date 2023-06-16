@@ -64,9 +64,9 @@ export default function Queue({profile, queue}) {
 									borderColor: 'text.primary',
 								}
 							}}>
-								<Typography variant='body2' sx={{position: 'relative', bottom: -1}}>view profile
+								<Typography variant='body2' sx={{position: 'relative', bottom: -2}}>view profile
 								</Typography>
-								<LaunchIcon sx={{fontSize: 'small', position: 'relative', bottom: -1}} />
+								<LaunchIcon sx={{fontSize: 'small', position: 'relative', bottom: -2}} />
 							</Box>
 						</a>
 					</Box>
